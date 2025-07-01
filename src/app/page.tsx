@@ -1,5 +1,10 @@
 "use client";
 
 export default function Home() {
-  return <div>안녕하세요.</div>;
-}
+  return (
+    <>
+      <div className="flex-1 flex items-center justify-center">
+        <span>명언앱 입니다.</span>
+      </div>
+    </>
+  );}
