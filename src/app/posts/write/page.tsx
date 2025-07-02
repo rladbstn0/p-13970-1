@@ -44,7 +44,7 @@ export default function Page() {
 
        return (
         <>
-          <h1>글쓰기</h1>
+          <h1>글 쓰기</h1>
     
           <form className="flex flex-col gap-2 p-2" onSubmit={handleSubmit}>
             <input
