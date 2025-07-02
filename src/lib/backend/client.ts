@@ -11,7 +11,12 @@ export const apiFetch = (url: string, options?: RequestInit) => {
     options.headers = headers;
   }
 
-  return fetch(`${NEXT_PUBLIC_API_BASE_URL}${url}`, options).then((res) =>
-    res.json()
-  );
+  return fetch(`${NEXT_PUBLIC_API_BASE_URL}${url}`, options).then((res) => {
+    if (!res.ok) {
+      return res.json().then((errorData) => {
+        throw new Error(errorData.msg);
+      });
+    }
+    return res.json();
+  });
 };
