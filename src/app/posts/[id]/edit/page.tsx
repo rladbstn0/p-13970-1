@@ -5,10 +5,12 @@ import { PostWithContentDto } from "@/type/post";
 import { useRouter } from "next/navigation";
 import { use, useEffect, useState } from "react";
 
-export default function Page({ params }: { params: Promise<{ id: number }> }) {
-    const { id } = use(params);  
+export default function Page({ params }: { params: Promise<{ id: String }> }) {
     const router = useRouter();
-    
+
+    const { id: idStr } = use(params);
+    const id = parseInt(idStr);
+
     const [post, setPost] = useState<PostWithContentDto | null>(null);
 
     
